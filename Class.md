@@ -1,6 +1,7 @@
 
 ## CYBER SECURITY
-Victor
+
+Victor Bundi - Completed
 
 Ibrahim Nyauncho - 5 Months
 
@@ -22,30 +23,36 @@ Yahya A Omar - - 1 Month
 
 ## WEB AND SOFTWARE
 
-Patience Kerry - 1 Month
+Washington Owuor - 5 Months
 
-Maska Massud - 1 Month
+Diana Mathilole - 5 Months
+
+Arnold Ben - 3 Months
+
+Patience Kerry - Completed
+
+Maska Massud - Completed
 
 
-Faith Wanjiku - 1/2 Month
+Faith Wanjiku - Completed
 
-Faith Blessing - 1/2 Month
+Faith Blessing - Completed
 
-Peter Mugo - 1/2 Month
+Peter Mugo - Completed
 
-James Okelo  - 1/2 Month
+James Okelo  - Completed
 
-Patrick Ndika - 1/2 Month
+Patrick Ndika - Completed
 
-Stanly Mugweru - 1/2 Month
+Stanly Mugweru - Completed
 
-Shueib Mohammad - 1/2 Month
+Shueib Mohammad - Completed
 
 #########################################
 
 ## WED DESIGN
 
-Patience Mbao - 1 Week
+Patience Mbao - Completed
 
 ## Digital Marketing
 
@@ -54,4 +61,25 @@ Peter Kairo - 1 Week
 #########################################
 
 ## CCNA
-Muuide
+
+Muuide - Completed
+
+
+
+
+### Project Message
+
+*Hello*
+
+Here’s the link to the school portal where you’ll submit your project once it’s complete:
+
+🔗 *(https://inceptor.co.ke/projects/)*
+
+### Follow these steps:
+
+1. *Create an account** using your **Admission Number*:
+   `CBS-41B/2024`
+2. Fill in your *name*, *email*, *password*, and *choose a username*.
+3. Under *Course*, select *ICT*.
+
+Let me know if you need any help!

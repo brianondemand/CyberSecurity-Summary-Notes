@@ -1,5 +1,11 @@
+msfvenom -l encoders
 
-# SnowWorksDev ACTIVE DIRECTORY #
+The default login for all OVA images is: root:blackarch
+
+ sudo apt install build-essential dkms linux-headers-$(uname -r)
+
+
+### ACTIVE DIRECTORY 
 
 Domain = SnowWorksDev => snowworksdev.local
 
@@ -21,140 +27,22 @@ PfSense= Firewall
 
 -------------------------------------------------------------------------
 
-#### DC USERS  ####
+#### DC USERS  
 
-Administrator ====  @Dlocaladmin - snowworksdev\administrator
+Administrator ====  Local@dmin - snowworksdev\administrator
 
-arthur_shelby = Password01 - User
+John-HR = Password01 - User
 
-fthorne = @dmin2001 - Admin - thorne
+ITDept = Tech@100 - Admin - thorne
 
-lord_kimber = P@ssword2002 - User
+Lisa-Sales = P@ssword2002 - User
 
 SQLService = DataB1001
 
 
 -------------------------------------------------------------------------
 
-
-### SPLUNK SERVER  
-
-Ubuntu Server 20.04.6 LTS = To install Splunk
-
-http://192.168.5.115:8000/ 		(Browser)
-
-
-
-username =splunkvm
-
-password = hireme
-
-
-admin = splunkvm
-
-password = hiremeplease
-
-
-
-Splunk Universal forwarder = The universal forwarder (UF) collects data securely from remote sources, including other forwarders, and sends it into Splunk.
-
-Sysmon = Windows system monitor tool from Microsoft that logs system activity to the Windows event log, offering detailed information about process creations, network connections, and other system events
-
-IDS = Intrution Detection System
-
-EDR - End-point Detection and Response
-
-
-###### Prepare Splunk Env ######
-
-sudo apt-get update
-
-sudo adduser username vboxsf 	(add user to vboxsf group)
-
-sudo apt-get install virtualbox-guest-additional-iso 	(help with shared folder)
-
-sudo apt install virtualbox-guest-utils 	(if vboxsf not available)
-
-sudo reboot
-
-sudo nano /etc/netplan/00-installer-config.yaml 	(config routes & static ips & dns)
-
-sudo netplan apply
-
-sudo reboot
-
-mkdir share
-
-sudo mount -t vboxsf -o uid=1000,gid=1000 Shared-Folder share/ 	(mount shared folder)
-
-cd share
-
-sudo dpkg -i splunk-installer.deb 		(install splunk)
-
-cd /opt/splunk (where its intalled)
-
-ls -la 		(check if user is splunk)
-
-sudo -u splunk bash 	(switch to splunk user)
-
-cd bin (binaries splunk can use)
-
-
-./splunk start 		(run installer)
-
-
-exit 		(exit splunk user)
-
-cd bin
-
-sudo ./splunk enable boot-start -user splunk 		(to start on boot)
-
-
-
-
-
-#### install symon and Splunk Universal Forwarder (UF)	$$	(target + server)
-
-`Splunk Universal Forwarder (UF)`
-
-sudo dpkg -i splunkforwarder-<version>-linux-2.6-amd64.deb
-
-
-
-sudo /opt/splunkforwarder/bin/splunk start --accept-license
-
-
-
-sudo /opt/splunkforwarder/bin/splunk enable boot-start  (UF start on boot)
-
-
-
-### Targets
-
-sudo /opt/splunkforwarder/bin/splunk add forward-server 192.168.5.115:9997 -auth admin:changeme  (Forward logs to Splunk server) (127.0.0.1 - used ip)
-
-
-sudo /opt/splunkforwarder/bin/splunk add monitor /var/log/auth.log  (Add logs to monitor)
-
-
-
-sudo /opt/splunkforwarder/bin/splunk list forward-server
-
-
-
-sudo ufw allow 9997/tcp (if firewall is enabled)
-sudo ufw reload
-
-
-`SYMon (Linux version)`
-
-
-
--------------------------------------------------------------------------
-
 ### NESSUS VM 
-
-
 
 https://machine-ip:8834/
 
@@ -179,6 +67,48 @@ LK2D-STNU-AT8L-D36K-D5G2
 
 -------------------------------------------------------------------------
 
+### WAZUH VM
+
+
+Wazuh is a free and open-source platform that provides both XDR (Extended Detection and Response) and SIEM (Security Information and Event Management) capabilities. 
+
+Includes Amazon Linux 2023 and the Wazuh central components:
+
+- Wazuh manager 
+
+- Filebeat-OSS 
+
+- Wazuh indexer 
+
+- Wazuh dashboard 
+
+
+user: wazuh-user
+password: wazuh
+
+Root privilege escalation can be achieved by executing the following command:
+
+`sudo -i`
+
+Access the Wazuh dashboard:
+
+ip a
+
+```
+URL: https://192.168.5.124
+user: admin
+password: admin
+```
+
+username: admin
+password: IxQmb4xrj5+jNi6nXNa2+vK*qHnQ?j*j
+
+
+sudo systemctl start wazuh-manager
+
+
+
+-------------------------------------------------------------------------
 
 ### T-POT HONEYPOT
 
@@ -186,6 +116,7 @@ user = rocky
 key = potadmin
 
 sudo apt install net-tools
+
 
 sudo systemctl restart tpot
 
@@ -258,3 +189,186 @@ http://172.17.0.2/vulnerabilities/csrf/?password_new=hacker&password_conf=hacker
 
 
 arp -a
+
+
+-------------------------------------------------------------------------------
+
+
+### bWAPP-Docker
+
+This is a simple Docker image for the OWASP bWAPP application designed to teach and demonstrate various web app vulnerabilities.
+
+
+docker run -d -p 80:80 hackersploit/bwapp-docker
+
+
+
+
+
+-------------------------------------------------------------------------
+
+### Mobile Security Framework (MobSF)
+
+
+docker run -it --rm -p 8000:8000 opensecurity/mobile-security-framework-mobsf:latest
+
+# Default username and password: mobsf/mobsf
+
+
+
+-------------------------------------------------------------------------
+
+### SPLUNK SERVER  
+
+Ubuntu Server 20.04.6 LTS = To install Splunk
+
+http://192.168.5.115:8000/ 		(Browser)
+
+
+sudo /opt/splunk/bin/splunk start
+
+
+
+username =splunkvm
+
+password = hireme
+
+
+admin = splunkvm
+
+password = hiremeplease
+
+
+
+Splunk Universal forwarder = The universal forwarder (UF) collects data securely from remote sources, including other forwarders, and sends it into Splunk.
+
+Sysmon = Windows system monitor tool from Microsoft that logs system activity to the Windows event log, offering detailed information about process creations, network connections, and other system events
+
+IDS = Intrution Detection System
+
+EDR - End-point Detection and Response
+
+
+###### Prepare Splunk Env ######
+
+sudo apt-get update
+
+sudo apt-get install virtualbox-guest-additional-iso 	(help with shared folder)
+
+sudo apt install virtualbox-guest-utils 	(if vboxsf not available)
+
+sudo adduser username vboxsf 	(add user to vboxsf group)
+
+sudo reboot
+
+sudo nano /etc/netplan/00-installer-config.yaml 	(config routes & static ips & dns)
+
+sudo netplan apply
+
+sudo reboot
+
+mkdir share
+
+sudo mount -t vboxsf -o uid=1000,gid=1000 Shared-Folder share/ 	(mount shared folder)
+
+cd share
+
+sudo dpkg -i splunk-installer.deb 		(install splunk)
+
+cd /opt/splunk (where its intalled)
+
+ls -la 		(check if user is splunk)
+
+sudo -u splunk bash 	(switch to splunk user)
+
+cd /opt/splunk/bin (binaries splunk can use)
+
+
+./splunk start 		(run installer)
+
+
+exit 		(exit splunk user)
+
+cd bin
+
+sudo ./splunk enable boot-start -user splunk 		(to start on boot)
+
+
+
+
+
+#### install symon and Splunk Universal Forwarder (UF)	$$	(target + server)
+
+`Splunk Universal Forwarder (UF)`
+
+sudo dpkg -i splunkforwarder-<version>-linux-2.6-amd64.deb
+
+
+
+sudo /opt/splunkforwarder/bin/splunk start --accept-license
+
+
+
+sudo /opt/splunkforwarder/bin/splunk enable boot-start  (UF start on boot)
+
+
+
+### Targets
+
+sudo /opt/splunkforwarder/bin/splunk add forward-server 192.168.5.115:9997 -auth admin:changeme  (Forward logs to Splunk server) (127.0.0.1 - used ip)
+
+
+sudo /opt/splunkforwarder/bin/splunk add monitor /var/log/auth.log  (Add logs to monitor)
+
+
+
+
+sudo /opt/splunkforwarder/bin/splunk status (start, status, stop)
+
+
+sudo /opt/splunkforwarder/bin/splunk list forward-server
+
+
+
+sudo ufw allow 9997/tcp (if firewall is enabled)
+sudo ufw reload
+
+
+`SYMon (Linux version)`
+
+
+### Windows install
+
+Install Splunk Universal Forwarder (UF) windows
+
+sysmon olaf config (sysmon config.xml)
+
+copy Sysmon folder location
+
+open powershell as admin
+
+cd sysmon folder
+
+.\Sysmon64.exe -i .\sysmonconfig.xml
+
+
+C:\ProgramFiles\SplunkUniversal\etc\system\default\inputs.config  (we need to copy this config file  paste it in local folder) (the one in default is a backup)
+
+
+Or just use this one `https://github.com/MyDFIR/Active-Directory-Project` (paste in local folder)
+
+
+Start splunk services (Services run as admin) look for splunk foward services.
+
+Change log on as from NTLM to local system, restart the service by right clicking on it.
+
+
+add endpoint index in the splunk server
+
+go to fowarding and receiving , receive data add new port (9997)
+
+
+
+---
+
+
