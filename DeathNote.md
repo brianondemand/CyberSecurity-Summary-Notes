@@ -1,10 +1,13 @@
 ## DEATHNOTE WALKTHROUGH
 
+
 - write short notes
 
 - take screenshots
 
 - dont clear terminal use `CTRL + L`
+
+- use ssh to connect to target
 
 - aim to get root.txt file
 
@@ -195,3 +198,8 @@ Step 10: Becoming Root
 
 
 - I get a `root.txt` file which contains a flag.
+
+
+
+
+`https://medium.com/@satyamgarg_94325/deathnote-1-vulnhub-walkthrough-c2c1c793e128` Walkthough

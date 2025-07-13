@@ -78,8 +78,10 @@ Here’s the link to the school portal where you’ll submit your project once i
 ### Follow these steps:
 
 1. *Create an account** using your **Admission Number*:
-   `CBS-41B/2024`
+   `CBS-4145/2024`
 2. Fill in your *name*, *email*, *password*, and *choose a username*.
 3. Under *Course*, select *ICT*.
 
 Let me know if you need any help!
+
+Deadline is Tomorrow 20th

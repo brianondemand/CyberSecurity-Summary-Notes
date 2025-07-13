@@ -2,7 +2,7 @@ msfvenom -l encoders
 
 The default login for all OVA images is: root:blackarch
 
- sudo apt install build-essential dkms linux-headers-$(uname -r)
+sudo apt install build-essential dkms linux-headers-$(uname -r)
 
 
 ### ACTIVE DIRECTORY 
@@ -29,7 +29,7 @@ PfSense= Firewall
 
 #### DC USERS  
 
-Administrator ====  Local@dmin - snowworksdev\administrator
+Administrator ====  Local@dmin - shelbycompany\administrator
 
 John-HR = Password01 - User
 
@@ -64,23 +64,56 @@ Your activation code for Nessus Essentials is:
 
 LK2D-STNU-AT8L-D36K-D5G2
 
+-------------------------------------------------------------------------
+
+### SPLUNK SERVER VM
+
+Splunk is a software platform used for searching, monitoring, and analyzing machine-generated data.
+
+Ubuntu Server 20.04.6 LTS = To install Splunk
+
+http://192.168.1.115:8000/ 		(Browser)
+
+
+sudo /opt/splunk/bin/splunk start
+
+
+
+username =sysadmin
+
+password = hireme
+
+
+admin = sysadmin
+
+password = hiremeplease
 
 -------------------------------------------------------------------------
 
+### OpenVAS
+
+OpenVAS is a full-featured vulnerability scanner.
+
+username:
+
+password:
+
+
+`sudo gvm-check-setup` --- check installation
+
+
+`sudo gvm-start`  --- start openVas
+
+
+
+
+-------------------------------------------------------------------------
 ### WAZUH VM
 
 
 Wazuh is a free and open-source platform that provides both XDR (Extended Detection and Response) and SIEM (Security Information and Event Management) capabilities. 
 
-Includes Amazon Linux 2023 and the Wazuh central components:
 
-- Wazuh manager 
-
-- Filebeat-OSS 
-
-- Wazuh indexer 
-
-- Wazuh dashboard 
 
 
 user: wazuh-user
@@ -218,25 +251,7 @@ docker run -it --rm -p 8000:8000 opensecurity/mobile-security-framework-mobsf:la
 
 -------------------------------------------------------------------------
 
-### SPLUNK SERVER  
-
-Ubuntu Server 20.04.6 LTS = To install Splunk
-
-http://192.168.5.115:8000/ 		(Browser)
-
-
-sudo /opt/splunk/bin/splunk start
-
-
-
-username =splunkvm
-
-password = hireme
-
-
-admin = splunkvm
-
-password = hiremeplease
+### SPLUNK SERVER  INSTALLATION
 
 
 
@@ -261,15 +276,21 @@ sudo adduser username vboxsf 	(add user to vboxsf group)
 
 sudo reboot
 
+
+
+
 sudo nano /etc/netplan/00-installer-config.yaml 	(config routes & static ips & dns)
 
 sudo netplan apply
+
+
+
 
 sudo reboot
 
 mkdir share
 
-sudo mount -t vboxsf -o uid=1000,gid=1000 Shared-Folder share/ 	(mount shared folder)
+sudo mount -t vboxsf -o uid=1000,gid=1000 Programs share/ 	(mount shared folder)
 
 cd share
 
