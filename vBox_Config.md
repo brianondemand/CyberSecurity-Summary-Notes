@@ -52,17 +52,14 @@ root-user == wizard
 root-password === admin
 
 
-username = nessusd
+username = brian
 
-key = tryhackme
+key = @dminnessus
 
 ip a - check ip address
 
-Activating Your Nessus Essentials License
 
-Your activation code for Nessus Essentials is:
-
-LK2D-STNU-AT8L-D36K-D5G2
+Activation Code: 7Y9C-2223-6KEB-BM87-7GQ5
 
 -------------------------------------------------------------------------
 

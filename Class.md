@@ -5,19 +5,19 @@ Victor Bundi - Completed
 
 Ibrahim Nyauncho - 5 Months
 
-Rosemary Achieng - 2 Months
+Rosemary Achieng - Completed
 
 Dorcus Mathenge - 5 Months
 
 Regeru Kariuki - 3 Months
 
-Abdulrashid Elmi - 5 Months
+Abdulrashid Elmi - 5 Months/Hold
 
 #########################################
 
 ## PENETRATION TESTING
 
-Yahya A Omar - - 1 Month
+Yahya A Omar - - 1 Month/Hold
 
 #########################################
 
@@ -28,6 +28,8 @@ Washington Owuor - 5 Months
 Diana Mathilole - 5 Months
 
 Arnold Ben - 3 Months
+
+Ahamed - 6 Months
 
 Patience Kerry - Completed
 
@@ -53,6 +55,12 @@ Shueib Mohammad - Completed
 ## WED DESIGN
 
 Patience Mbao - Completed
+
+Robbi - 1 Month
+
+Abigael - 1 Month
+
+Lina 1 - Month
 
 ## Digital Marketing
 
