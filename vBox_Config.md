@@ -248,6 +248,32 @@ docker run -it --rm -p 8000:8000 opensecurity/mobile-security-framework-mobsf:la
 
 -------------------------------------------------------------------------
 
+### WebMap-Nmap Web Dashboard and Reporting
+
+docker run -d \
+         --name webmap \
+         -h webmap \
+         -p 8000:8000 \
+         -v /tmp/webmap:/opt/xml \
+         reborntc/webmap
+         
+         
+# now you can run Nmap and save the XML Report on /tmp/webmap
+
+$ nmap -sT -A -T4 -oX /tmp/webmap/myscan.xml 192.168.1.0/24
+
+# Generate a new Token
+
+$ docker exec -ti webmap /root/token
+
+$ docker stop webmap
+
+# pull new image from dockerhub
+
+$ docker pull reborntc/webmap
+
+-------------------------------------------------------------------------
+
 ### SPLUNK SERVER  INSTALLATION
 
 
